@@ -129,6 +129,8 @@ button {
 					text-decoration: none;
 					position: relative;
 					left: 170px;
+					background: transparent;
+					border: none;
 				}
 				&__title {
 					display: block;
@@ -324,20 +326,89 @@ button {
 	font-size: 14px;
 	line-height: 17px;
 	&-main {
-		padding: 0 10px 0 15px;
+		position: relative;
+		width: 360px;
+		box-sizing: border-box;
+		outline: none;
+  		border: none;
+	}
+	&-main[open] {
+		box-shadow: $shadow;
+		width: 360px;
+	}
+	&-main__title {
+		display: block;
+		padding: 13px 10px 0 15px;
 		font-weight: 600;
 		text-transform: uppercase;
 		&:hover {
 			color: #EF5B70;
 		}
-		& ~ svg {
-			padding-right: 304px;
+		&>svg {
+			padding: 0 0 1px 11px;
 			fill: #000000;
 		}
-		&:hover ~ svg {
+		&:hover svg {
 			fill: #EF5B70;
 		}
 	}
+	&-content {
+		position: absolute;
+		z-index: 20;
+		background-color: #FFFFFF;
+		left: 0;
+		width: 360px;
+		box-sizing: border-box;
+
+		&__details {
+			width: 360px;
+			padding-top: 24px;
+			// box-shadow: $shadow;
+		}
+
+		&__title {
+			display: block;
+			padding: 0 10px 15px 33px;
+			font-weight: 400;
+			text-transform: uppercase;
+			color: $main-pink;
+			position: relative;
+			&:hover {
+				color: #6F6E6E;
+			}
+			&::before {
+				content: "";
+				display: block;
+				width: 5px;
+				height: 37px;
+				background-color: $main-pink;
+				position: absolute;
+				top: -10px;
+				left: 17px;
+			}
+		}
+		&__drop {
+			list-style: none;
+			padding: 21px 0 0 33px;
+
+			&-item {
+				font-weight: normal;
+				font-size: 14px;
+				line-height: 17px;
+				margin-bottom: 11px;
+				
+				&>a {
+					text-decoration: none;
+					color: #6F6E6E;
+				}
+			}
+		}
+	}
+	
+	&-wrp {
+		margin-left: 30px;
+	}
+
 	&-check {
 		color: #6F6E6E;
 		text-transform: uppercase;
@@ -841,6 +912,125 @@ button {
 				border-bottom: 1px solid #E2E2E2;
 			}
 		}
+	}
+}
+
+.reg {
+	display: flex;
+	margin: 64px auto 96px;
+	&-wrp {
+		padding-left: 15px;
+	}
+	&-form {
+		width: 360px;
+		display: flex;
+		flex-direction: column;
+		&__title {
+			font-weight: 300;
+			font-size: 16px;
+			line-height: 19px;
+			color: #222222;
+		}
+		&__field {
+			margin-top: 20px;			
+			width: auto;
+			height: 45px;
+			border: 1px solid #A4A4A4;
+			font-family: Lato;
+			font-weight: 300;
+			font-size: 13px;
+			line-height: 16px;
+			padding-left: 17px;	
+			&::placeholder {
+				color: #B1B1B1;
+			}
+			&~label {
+				font-family: Lato;
+				font-weight: 300;
+				font-size: 13px;
+				line-height: 16px;
+				color: #B1B1B1;
+				padding-top: 15.5px;
+			}
+		}
+		&__radio {
+			margin: 31px 0 33px 0;
+			display: flex;
+			align-items: center;
+			&-field {
+				width: 17px;
+				height: 17px;
+				&~label {
+					font-family: Lato;
+					font-weight: 300;
+					font-size: 11px;
+					line-height: 13px;
+					color: #000000;
+					padding: 0 20px 0 10px;
+				}
+			}
+		}
+		&__submit-btn {
+			font-weight: normal;
+			font-size: 14px;
+			line-height: 17px;
+			text-transform: uppercase;
+			color: #FFFFFF;
+			background-color: $main-pink;
+			width: 167px;
+			height: 50px;
+			border: 1px solid $main-pink;
+			margin-top: 39px;
+			transition: 0.3s;
+			& svg {
+				fill: #FFFFFF;
+				padding-left: 20px;
+				transition: 0.3s;
+			}
+			&:hover {
+				background-color: #fff;
+				color: $main-pink;
+			}
+			&:hover svg {
+				fill: $main-pink;
+			}
+		}		
+	}
+
+	&-description {
+		margin-left: 128px;
+		&__title {
+			font-weight: 300;
+			font-size: 24px;
+			line-height: 29px;
+			text-transform: uppercase;
+		}
+		&__list {
+			font-weight: 300;
+			font-size: 24px;
+			line-height: 29px;
+			list-style: none;
+			& p {
+				margin: 22px 0 21px 0;
+			}
+			&-item {
+				margin-bottom: 16px;
+				padding-left: 43px;
+				position: relative;
+				&::before {
+					content: "";
+					display: block;
+					width: 20px;
+					height: 16px;
+					position: absolute;
+					left: 0;
+					top: 7px;
+					background-image: url(../img/check-mark.svg);
+				}
+			}
+			
+		}
+		
 	}
 }
 
